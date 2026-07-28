@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Contacts</title>
+</head>
+<body>
+
+    <h1>Contacts</h1>
+
+    <ul id="contactList"></ul>
+
+    <script>
+
+        fetch("http://localhost:5000/contacts")
+        .then(response => response.json())
+        .then(data => {
+
+            const list =
+                document.getElementById("contactList");
+
+                console.log(data);
+
+            data.forEach(contact => {
+
+                console.log(contact.Id);
+                console.log(contact.Name);
+
+                const item =
+                    document.createElement("li");
+
+                item.textContent =
+                    contact.Name;
+
+                list.appendChild(item);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
