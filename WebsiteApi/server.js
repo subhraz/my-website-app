@@ -54,8 +54,10 @@ app.get("/contacts", (req, res) => {
 
 });
 
-app.listen(5000, () => {
-    console.log("Server Running");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server Running on port ${PORT}`);
 });
 
 app.put("/contacts/:id", (req, res) => {
