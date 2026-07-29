@@ -9,8 +9,14 @@ async function submitForm() {
     let name =
         document.getElementById("name").value;
 
+    const API_BASE =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === ""
+            ? "http://localhost:5000"
+            : "";
+
     const response = await fetch(
-        "http://localhost:5000/saveContact",
+        (`${API_BASE}/saveContact`),
         {
             method: "POST",
 

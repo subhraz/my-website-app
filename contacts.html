@@ -12,7 +12,13 @@
 
     <script>
 
-        fetch("http://localhost:5000/contacts")
+        const API_BASE =
+            window.location.hostname === "localhost" ||
+            window.location.hostname === ""
+                ? "http://localhost:5000"
+                : "";
+
+        fetch(`${API_BASE}/contacts`)
         .then(response => response.json())
         .then(data => {
 
